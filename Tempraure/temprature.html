@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* Existing styles */
+    background: linear-gradient(rgb(140, 210, 219), rgb(221, 157, 237));
+    animation: gradientAnimation 10s linear infinite;
+        }
+        .col input:hover {
+    background: #f0f0f0; /* Change to a lighter background color */
+    border: 1px solid #555; /* Change border color on hover */
+}
+.col input {
+    /* Existing styles */
+    transition: background 0.3s, border-color 0.3s; /* Smooth transitions for background and border-color changes */
+}
+.col input {
+    /* Existing styles */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+}
+
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+
+
+
+        h1 {
+            color: rgb(30, 7, 122);
+            font-weight: 700;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .converter-row {
+            display: flex;
+            width: 40%;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px;
+            padding: 50px 20px;
+        }
+
+        .col {
+            flex-basis: 32%;
+            text-align: center;
+        }
+
+        .col label {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: rgb(30, 7, 122);
+        }
+
+        .col input {
+            width: 150px;
+            height: 30px;
+            background: white;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .image {
+            border: 5px solid #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <div class="converter-row">
+            <div class="col">
+                <label>Fahrenheit</label>
+                <input type="number" id="fahrenheit">
+            </div>
+            <div class="col">
+                <label>Celsius</label>
+                <input type="number" id="celsius">
+            </div>
+        </div>
+        <div class="image">
+            <img src="1.png" alt="Your Image">
+        </div>
+    </div>
+
+    <script>
+        // Get input elements
+        let celsius = document.getElementById('celsius');
+        let fahrenheit = document.getElementById('fahrenheit');
+
+        // Input event for Celsius to Fahrenheit conversion
+        celsius.oninput = function () {
+            let f = (parseFloat(celsius.value) * 9) / 5 + 32;
+            fahrenheit.value = parseFloat(f.toFixed(2));
+        }
+
+        // Input event for Fahrenheit to Celsius conversion
+        fahrenheit.oninput = function () {
+            let c = ((parseFloat(fahrenheit.value) - 32) * 5) / 9;
+            celsius.value = parseFloat(c.toFixed(2));
+        }
+    </script>
+</body>
+</html>
